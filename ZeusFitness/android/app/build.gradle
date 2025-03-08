@@ -107,12 +107,11 @@ android {
     }
 }
 
-def hermesEnabled = false // Set this to false to disable Hermes
-
 dependencies {
+    // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
-    if (hermesEnabled) { // Use the variable to enable or disable Hermes
+    if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
